@@ -5,7 +5,7 @@ const path = require('path');
 const userRouter= require("./routes/user")
 const mainRouter= require("./routes/mainRouter")
 const staticRoutes= require("./routes/staticRoutes");
-const ristrictToUserLogin= require("./middlewares/auth")
+const {ristrictToUserLogin,checkAuth}= require("./middlewares/auth")
 const cookieParser = require("cookie-parser");
 
 const PORT = process.env.Port || 8080;

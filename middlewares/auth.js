@@ -13,4 +13,16 @@ async function ristrictToUserLogin(req,res,next){
    next();
 }
 
-module.exports= ristrictToUserLogin;
+async function checkAuth(req,res,next){
+   const  userUid=req.cookies?.uid;
+   const user =  await getUser(userUid);
+   console.log(user);
+   req.user=user;
+   next();
+
+}
+
+module.exports= {
+   ristrictToUserLogin,
+   checkAuth
+};
